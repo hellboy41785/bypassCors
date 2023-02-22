@@ -7,12 +7,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 app.use(cors());
 
 const port = process.env.PORT || 5000;
-const corsProxy = createProxyMiddleware({
-  changeOrigin: true,
-  target: "https://www.nseindia.com", // this can be any target URL
-});
 
-app.use('/corsbypass', corsProxy);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
